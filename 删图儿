@@ -1,0 +1,17 @@
+#coding=utf-8
+import os
+
+with open("C:\\Users\\dell\\Documents\\Tencent Files\\1714814687\\FileRecv\\MobileFile\\wrong_mask_id_9-23.txt",'r') as file_object:
+        gottxt=[]    
+        for line in file_object:
+            a = int(line.rstrip('\n'))
+            if a>20000 and a< 30000:
+                gottxt.append('image_D000' + str(a) + '.png') 
+
+
+print(gottxt[0])    
+path = 'D:\\00020000_00039999\\test_images'
+dirs = os.listdir(path)
+for i in gottxt:
+    if i in dirs:
+        os.remove(path + '\\' + i)
